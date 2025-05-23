@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/jeevamvv/basic-flask-ci-cd.git'
+                git 'https://github.com/Jeevamvv/basic-flask-ci-cd'
             }
         }
 
