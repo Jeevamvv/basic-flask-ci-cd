@@ -11,26 +11,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("flask-ci-cd-image")
+                    def app = docker.build("flask-ci-cd-image")
                 }
             }
         }
 
         stage('Run Docker Container') {
             steps {
-                script {
-                    sh 'docker run -d -p 5000:5000 flask-ci-cd-image'
-                }
+                sh 'docker run -d -p 5000:5000 flask-ci-cd-image'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline executed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed.'
         }
     }
 }
